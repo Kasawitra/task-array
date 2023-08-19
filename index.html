@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+
+.container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 16px;
+    padding-left: 16px;
+    }
+
+    </style>
+</head>
+<body>
+    <div id="mobil" class="container"></div>
+
+<script>
+    const cars = [
+            {
+                merk: "Wuling",
+                model: "Almaz",
+                colors:["red","blue","black"]
+            },
+            {
+                merk: "Mitsubishi",
+                model: "Xpander",
+                colors:["red","blue","black"]
+            },
+            {
+                merk: "Toyota",
+                model: "Avanza",
+                colors:["red","blue","black"]
+            },
+            {
+                merk: "Honda",
+                model: "CRV",
+                colors:["red","blue","black"]
+            },
+            {
+                merk: "Suzuki",
+                model: "Ertiga",
+                colors:["red","blue","black"]
+            }];
+  
+
+// Get the parent element to which the content will be added
+var parentElement = document.getElementById('mobil');
+
+// Loop through each car in the cars array
+cars.forEach(function(car) {
+        // Create a <div> for the merk
+    var merkDiv = document.createElement('div');
+    merkDiv.textContent = car.merk;
+    parentElement.appendChild(merkDiv);
+
+  // Loop through each color and create a section for each
+    car.colors.forEach(function(color) {
+
+    // Create a <ul> for the car details
+    var ulElement = document.createElement('ul');
+
+    // Create <li> for merk and model
+    var merkLi = document.createElement('li');
+    merkLi.textContent = `Merk: ${car.merk}`;
+    ulElement.appendChild(merkLi);
+
+    var modelLi = document.createElement('li');
+    modelLi.textContent = `Model: ${car.model}`;
+    ulElement.appendChild(modelLi);
+
+    // Create <li> for the color
+    var colorLi = document.createElement('li');
+    colorLi.textContent = `Color: ${color}`;
+    ulElement.appendChild(colorLi);
+
+    // Add the <ul> element to the parent
+    parentElement.appendChild(ulElement);
+  });
+});
+
+
+</script>
+
+</body>
+</html>
